@@ -41,3 +41,64 @@ Squashing the code into 10 lines of BBC BASIC was an exercise involving extraord
    Even allowing self-modification, condensing the code to 10 lines was exorbitantly exasperating and the solution exploits some exotic expertise. For example: Keyword tokens are abbreviated wherever possible. Every subroutine is defined as a function: global variables are preferred to arguments. The variables `A%`, `X%`, and `Y%` that define the system call are reused in the body of the program. The variables `B`, `G`, `M` and `T` are used as both data store and location pointer. The counter `Z%` is used without initialization. The lack of an `ENDIF` statement necessitated some tortuous conditional logic. And so on and so forth. The most time-consuming part was the endless code-juggling to fit no more than 239 bytes into each line. The final steps were exhausting: it took as long to get from 12 lines of code to 11 as were expended to get from 30 lines down to 12, and getting from 11 lines to 10 was exponentially more exacting.
    
    Despite the excruciating exigencies of extruding every last byte from the source code, I made essentially no cuts to the game itself. The only exemption that I found expedient to expunge was to excise extra excreta (poop hazards) from higher levels of the game. I expressed especial exuberance at retaining the fairly complex functions `FNd` and `FNq` that determine which way the snails move.
+   
+## Functions
+
+`FNb` draw gate at grid location b  
+`FNc` check whether snail has hit man  
+`FNd` determine direction of snail  
+`FNh` draw man  
+`FNi` draw maze item at location a  
+`FNp` get pixel value in front of man/snail
+`FNq` determine probability of snail direction
+`FNr` draw timer  
+`FNs` make sound  
+`FNw` draw snail  
+`FNy` get snail data  
+
+## Variables
+
+`a` x location of ghost/grid location of object  
+`b` y location of ghost/grid location of gate  
+`c` intended movement in x direction  
+`d` intended movement in y direction  
+`e` temporary variable  
+`f` temporary variable  
+`g` location of data for snail whose turn it is to move  
+`h` character depicting man  
+`i` temporary variable  
+`j` temporary variable  
+`k` number of lives that remain  
+`m` mode: 0=normal, 3=magic  
+`n` temporary variable  
+`o` number of pixels moved from square by snail  
+`p` temporary variable  
+`q` temporary variable  
+`s` game state: 0=playing, 1=dead, 2=level up, 3=level up and dead, -32=not playing  
+`t` time at last user input 
+`u` grid location of man (except line 9)  
+`v` game level  
+`w` delay between snails (units of 0.01 second)  
+`x` x location of man  
+`y` y location of man  
+`z` index of snail whose turn it is to move  
+`B` constant 31  
+`C` constant &312  
+`D` constant &119  
+`E` number of eggs that remain to be collected  
+`G` constant &A01  
+`M` constant &419   
+`P` constant &E0 (width of maze in pixels)  
+`Q` constant 16  
+`R` constant 32  
+`S` game score  
+`T` constant 128  
+`V` number of pixels each snail moves, per turn  
+`Y` location of data for last snail  
+`Z` total number of snails on screen (max 3)  
+`@%` system variable governing print format  
+`A%` constant 131  
+`B%` constant holding data on maze item characters  
+`X%` high score  
+`Y%` number that determines the length of the delay before the game restarts  
+`Z%` counter that determines which ghost is about to move  
