@@ -75,8 +75,8 @@ Squashing the code into 10 lines of BBC BASIC was an exercise involving extraord
 `p` temporary variable  
 `q` temporary variable  
 `s` game state: 0=playing, 1=dead, 2=level up, 3=level up and dead, -32=not playing  
-`t` time at last user input 
-`u` grid location of man (except line 9)  
+`t` time at last user input   
+`u` grid location of man (except line 9)   
 `v` game level  
 `w` delay between snails (units of 0.01 second)  
 `x` x location of man  
