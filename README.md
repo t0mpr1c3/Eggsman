@@ -44,13 +44,13 @@ Squashing the code into 10 lines of BBC BASIC was an exercise involving extraord
    
 ## Functions
 
-`FNb` draw gate at grid location b  
+`FNb` draw gate at grid location `b`  
 `FNc` check whether snail has hit man  
 `FNd` determine direction of snail  
 `FNh` draw man  
-`FNi` draw maze item at location a  
-`FNp` get pixel value in front of man/snail
-`FNq` determine probability of snail direction
+`FNi` draw maze item at location `a`  
+`FNp` get pixel value in front of man/snail  
+`FNq` determine probability of snail direction  
 `FNr` draw timer  
 `FNs` make sound  
 `FNw` draw snail  
