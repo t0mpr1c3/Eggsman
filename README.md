@@ -10,6 +10,6 @@ It's a maze with a twist. The eggboxes have turnstiles that Mr Ximenez can barge
 ## How to play
 
 `<`     left  
-`>`     right
-`Shift` up
-`Ctrl`  down
+`>`     right  
+`Shift` up  
+`Ctrl`  down  
