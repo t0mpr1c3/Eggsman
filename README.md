@@ -115,7 +115,7 @@ Despite the excruciating exigencies of extruding every last byte from the source
 `T` constant 128  
 `V` number of pixels each snail moves, per turn  
 `Y` location of data for last snail  
-`Z` total number of snails on screen (max 3)  
+`Z` total number of snails on screen (max 4)  
 `@%` system variable governing print format  
 `A%` constant 131  
 `B%` constant holding data on maze item characters  
