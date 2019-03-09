@@ -3,9 +3,9 @@ maze game in 10 lines of BASIC
 
 ## Purpose
 
-* This is a Ladybug-type game with turnstiles written for the javascript BBC micro model B emulator, [jsbeeb](https://bbc.godbolt.org/).
+* This is a Ladybug-type game written for the javascript BBC micro model B emulator, [jsbeeb](https://bbc.godbolt.org/).
 
-* The concept is loosely based on a spider-themed maze game released for the Commodore 64 in the 1980s, whose name I have forgotten. I wrote up a [Hallowe'en style version of the game](https://www.youtube.com/watch?v=i2zMBxIZGmY) for [*BEEBUG* Magazine](http://bbcmicro.co.uk/game.php?id=602) when I was 15 years old. It was published in 1987.
+* The concept is loosely based on a spider-themed maze game with turnstiles that I played on a friend's Commodore 64, the name of which I have forgotten. I wrote up a [Hallowe'en style version of the game](https://www.youtube.com/watch?v=i2zMBxIZGmY) for [*BEEBUG* Magazine](http://bbcmicro.co.uk/game.php?id=602) when I was 15 years old. It was published in 1987.
 
 * It was written as an entry for the [2019 BASIC 10 liner contest](http://gkanold.wixsite.com/homeputerium/kopie-von-basic-10liners-2019) in the category WILD. It does not comply with the rules for the EXTREME-256 category because it contains self-modifying code.
 
