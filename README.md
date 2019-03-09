@@ -3,11 +3,29 @@ maze game in 10 lines of BASIC
 
 ## Purpose
 
+* This is a Pacman-type game with turnstiles written for the javascript BBC micro model B emulator, [jsbeeb](https://bbc.godbolt.org/).
+
+* The concept is loosely based on a spider-themed maze game released for the Commodore 64 in the 1980s, whose name I have forgotten. I wrote up a [Hallowe'en style version of the game](https://www.youtube.com/watch?v=i2zMBxIZGmY) for [*BEEBUG* Magazine](http://bbcmicro.co.uk/game.php?id=602) when I was 15 years old. It was published in 1987.
+
+* It was written as an entry for the [2019 BASIC 10 liner contest](http://gkanold.wixsite.com/homeputerium/kopie-von-basic-10liners-2019) in the category WILD. It does not comply with the rules for the EXTREME-256 category because it contains self-modifying code.
+
+## Theme
+
 Eggsman is a maze game featuring the eponymous protagonist, the eccentric explorer Xylon Ximenez, whose task is to gather all the eggs in the henhouse before the evil snails crawl over and slime him. Having extracted the eggs he must exit, and then do it all again the next day. Don't ask me why the henhouse is full of killer snails, it just is, OK? It's an execrable existence, and then you expire.
 
 It's a maze with a twist. The eggboxes have turnstiles that Mr Ximenez can barge through but are impervious to snails. Grabbing the magic garlic clove renders snails edible for a little while. But don't step in the poop hazard. Every henhouse has one, directly under the roost.
 
+The snails start out moving very slowly, because they are snails, but once they get the scent of human blood they start charging around in lethal fashion at much higher speeds. Unfortunately the demands of multiple snails on a 6502 processor make gameplay at the higher levels considerably less responsive, and the speed tops out at level 4. The laws of physics apply even to murderous gastropods.
+
 ## How to play
+
+Download EGGWILD.zip from the [github repo](https://github.com/t0mpr1c3/Eggsman) and extract the virtual disk EGGWILD.ssd. Upload the file into *jsbeeb*, or an offline emulator such as [BeebEm](https://en.wikipedia.org/wiki/BeebEm), and type `CHAIN "EGGWILD"`. 
+
+(Note that *jsbeeb* has a strange keyboard mapping: on my US keyboard I got the double quote by typing `SHIFT-2`.)
+
+Alternatively, copy/paste the BASIC code into the console of *BeebEm* and type `RUN`.
+
+### Keys
 
 `X` left  
 `C` right  
@@ -15,6 +33,8 @@ It's a maze with a twist. The eggboxes have turnstiles that Mr Ximenez can barge
 `N` down  
 
 ## Mechanics
+
+### Code summary
 
 Squashing the code into 10 lines of BBC BASIC was an exercise involving extraordinary exertions. The game logic required multiple subroutines, but the language allows only one function or procedure definition per line. Also, the maximum extent of each line is 239 characters. I found a solution using self-modifying code. Each of the first four lines of code redefines a function key, which is inserted into the keyboard buffer by a system call at the beginning of line 4. Running the program has the same effect as pressing the function key. The soft key overwrites the line of code that defined it, then runs the program again. The final iteration, encoded on line 0, directly changes the stored code so that the the modified program executes without terminating on line 4. The result is not 10 but 17 lines of code. Note that some of the lines are longer than 239 characters after expansion of the keyword tokens.
 
@@ -37,10 +57,10 @@ Squashing the code into 10 lines of BBC BASIC was an exercise involving extraord
 15DEFFNi:b=G?a:VDUC;1-(b=1),M;a MOD7*R;a DIV7*r;5,b?&407:=0
 16DEFFNd:IFp=0ANDFNq:=1ELSEe=c=0:f=e=0:i=2ANDFNp(a,b,e,f):j=2ANDFNp(a,b,-e,-f):IFi*j:=1-p ELSEc=e:d=f:IFi+j:=j-i ELSE=.5-FNq
 ```
+
+Even allowing self-modification, condensing the code to 10 lines was exorbitantly exasperating and the solution exploits some exotic expertise. For example: Keyword tokens are abbreviated wherever possible. Every subroutine is defined as a function: global variables are preferred to arguments. The variables `A%`, `X%`, and `Y%` that define the system call are reused in the body of the program. The variables `B`, `G`, `M` and `T` are used as both data store and location pointer. The counter `Z%` is used without initialization. The lack of an `ENDIF` statement necessitated some tortuous conditional logic. And so on and so forth. The most time-consuming part was the endless code-juggling to fit no more than 239 bytes into each line. The final steps were exhausting: it took as long to get from 12 lines of code to 11 as were expended to get from 30 lines down to 12, and getting from 11 lines to 10 was exponentially more exacting.
    
-   Even allowing self-modification, condensing the code to 10 lines was exorbitantly exasperating and the solution exploits some exotic expertise. For example: Keyword tokens are abbreviated wherever possible. Every subroutine is defined as a function: global variables are preferred to arguments. The variables `A%`, `X%`, and `Y%` that define the system call are reused in the body of the program. The variables `B`, `G`, `M` and `T` are used as both data store and location pointer. The counter `Z%` is used without initialization. The lack of an `ENDIF` statement necessitated some tortuous conditional logic. And so on and so forth. The most time-consuming part was the endless code-juggling to fit no more than 239 bytes into each line. The final steps were exhausting: it took as long to get from 12 lines of code to 11 as were expended to get from 30 lines down to 12, and getting from 11 lines to 10 was exponentially more exacting.
-   
-   Despite the excruciating exigencies of extruding every last byte from the source code, I made essentially no cuts to the game itself. The only exemption that I found expedient to expunge was to excise extra excreta (poop hazards) from higher levels of the game. I expressed especial exuberance at retaining the fairly complex functions `FNd` and `FNq` that determine which way the snails move.
+Despite the excruciating exigencies of extruding every last byte from the source code, I made essentially no cuts to the game itself. The only exemption that I found expedient to expunge was to excise extra excreta (poop hazards) from higher levels of the game. I expressed especial exuberance at retaining the fairly complex functions `FNd` and `FNq` that determine which way the snails move.
    
 ## Functions
 
